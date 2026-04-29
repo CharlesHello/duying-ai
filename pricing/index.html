@@ -171,33 +171,32 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AUN9c1w1UGqd2RkSk5AUxxaYYQdwsxwuhCtZLbsTfDBE6wgcnD6G9WeK15OYzKyP_MXQVA6u05vlFZ20&currency=USD"></script>
 
 <script>
-function initPayPalButton(containerId, planId) {
+function initPayPalButton(containerId, amount) {
     paypal.Buttons({
         style: {
             shape: 'pill',
             color: containerId === 'paypal-button-pro' ? 'gold' : 'blue',
             layout: 'horizontal',
-            label: 'subscribe',
+            label: 'pay',
             height: 40
         },
-        createSubscription: function(data, actions) {
-            return actions.subscription.create({
-                'plan_id': planId
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    description: 'DuYing AI Subscription',
+                    amount: { value: amount }
+                }]
             });
         },
         onApprove: function(data, actions) {
-            alert('Thank you! Your subscription ID: ' + data.subscriptionID);
-        },
-        onError: function(err) {
-            console.error('PayPal error:', err);
+            alert('Thank you for your payment!');
         }
     }).render('#' + containerId);
 }
 
-// 初始化三个按钮（plan_id 后续替换为 PayPal Dashboard 创建的真实 Plan ID）
-initPayPalButton('paypal-button-basic', 'P-BASIC_PLAN_ID');
-initPayPalButton('paypal-button-pro', 'P-PRO_PLAN_ID');
-initPayPalButton('paypal-button-ultimate', 'P-ULTIMATE_PLAN_ID');
+initPayPalButton('paypal-button-basic', '9.00');
+initPayPalButton('paypal-button-pro', '19.00');
+initPayPalButton('paypal-button-ultimate', '39.00');
 </script>
 
 </body>
