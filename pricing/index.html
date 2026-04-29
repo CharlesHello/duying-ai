@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,6 @@
         :root {
             --accent: #8bc34a;
             --accent-dark: #689f38;
-            --accent-light: #dcedc8;
             --dark: #1a1a2e;
             --text: #333;
             --text-light: #666;
@@ -19,58 +17,34 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+            background: var(--bg); color: var(--text); line-height: 1.6;
         }
         nav {
-            background: var(--white);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            padding: 16px 0; position: sticky; top: 0; z-index: 100;
         }
         nav .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            max-width: 1100px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--dark);
-        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--dark); }
         .logo-icon {
             width: 36px; height: 36px;
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
+            border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px;
         }
         .logo-text { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
         .logo-text span { color: var(--accent-dark); }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 15px; }
         .nav-links a:hover { color: var(--accent-dark); }
-        .btn-nav {
-            background: var(--accent); color: white !important;
-            padding: 8px 20px; border-radius: 8px; font-size: 14px;
-        }
+        .btn-nav { background: var(--accent); color: white !important; padding: 8px 20px; border-radius: 8px; font-size: 14px; }
         .btn-nav:hover { background: var(--accent-dark); }
         .hero {
             text-align: center; padding: 64px 24px 48px;
             background: linear-gradient(180deg, #f0f7e6 0%, var(--bg) 100%);
         }
-        .hero h1 {
-            font-size: 42px; font-weight: 800; color: var(--dark);
-            margin-bottom: 16px; letter-spacing: -1px;
-        }
+        .hero h1 { font-size: 42px; font-weight: 800; color: var(--dark); margin-bottom: 16px; letter-spacing: -1px; }
         .hero h1 em { color: var(--accent-dark); font-style: normal; }
         .hero p { font-size: 18px; color: var(--text-light); max-width: 560px; margin: 0 auto; }
         .plans {
@@ -97,32 +71,11 @@
         .plan-price .currency { font-size: 20px; font-weight: 600; color: var(--text-light); vertical-align: super; }
         .plan-price .period { font-size: 15px; color: var(--text-light); }
         .plan-features { list-style: none; margin-bottom: 28px; }
-        .plan-features li {
-            padding: 6px 0; font-size: 14px; color: var(--text);
-            display: flex; align-items: flex-start; gap: 8px;
-        }
-        .plan-features li::before {
-            content: '✓'; color: var(--accent-dark); font-weight: 700;
-            flex-shrink: 0; margin-top: 1px;
-        }
-        .paypal-btn-wrap { margin-top: 8px; }
-        .paypal-btn {
-            width: 100%; padding: 12px 24px;
-            background: #ffc439; color: #003087; border: none; border-radius: 25px;
-            font-size: 15px; font-weight: 700; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; gap: 6px;
-            transition: background 0.2s;
-        }
-        .paypal-btn:hover { background: #f0b72e; }
-        .paypal-btn svg { height: 22px; }
-        .paypal-secure {
-            text-align: center; font-size: 11px; color: #999; margin-top: 8px;
-            display: flex; align-items: center; justify-content: center; gap: 4px;
-        }
-        footer {
-            text-align: center; padding: 32px 24px; border-top: 1px solid #eee;
-            color: var(--text-light); font-size: 13px;
-        }
+        .plan-features li { padding: 6px 0; font-size: 14px; color: var(--text); display: flex; align-items: flex-start; gap: 8px; }
+        .plan-features li::before { content: '✓'; color: var(--accent-dark); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+        .paypal-container { min-height: 45px; }
+        .paypal-secure { text-align: center; font-size: 11px; color: #999; margin-top: 8px; }
+        footer { text-align: center; padding: 32px 24px; border-top: 1px solid #eee; color: var(--text-light); font-size: 13px; }
         footer a { color: var(--accent-dark); text-decoration: none; }
         @media (max-width: 768px) {
             .plans { grid-template-columns: 1fr; max-width: 400px; }
@@ -154,7 +107,6 @@
 </section>
 
 <section class="plans">
-    <!-- Basic -->
     <div class="plan">
         <div class="plan-name">Basic</div>
         <div class="plan-desc">For casual users &amp; explorers</div>
@@ -168,19 +120,10 @@
             <li>Web &amp; mobile access</li>
             <li>5 conversation history</li>
         </ul>
-        <div class="paypal-btn-wrap">
-            <button class="paypal-btn" onclick="handleSubscribe('basic')">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 4.01a.77.77 0 0 1 .757-.646h5.976c2.83 0 4.784.682 5.804 2.027.494.652.785 1.344.868 2.086.08.72.013 1.565-.2 2.528-.47 2.123-1.457 3.728-2.934 4.768-1.447 1.018-3.416 1.534-5.854 1.534H8.087a.77.77 0 0 0-.757.645l-.254 1.583zm11.562-9.877c-.012-.032-.024-.064-.038-.096a5.79 5.79 0 0 0-1.008-1.764c-1.148-1.446-3.072-2.18-5.717-2.18H6.137a1.156 1.156 0 0 0-1.136.97L2.258 20.763a.966.966 0 0 0 .95 1.117h4.606l-.276 1.72a.966.966 0 0 0 .95 1.118h4.006c.512 0 .95-.374 1.03-.882l.043-.273.815-5.09.053-.298a1.04 1.04 0 0 1 1.03-.882h.649c4.2 0 7.49-1.707 8.45-6.643.36-1.848.2-3.394-.438-4.553a4.39 4.39 0 0 0-.644-.847"/></svg>
-                Subscribe
-            </button>
-            <div class="paypal-secure">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="#999"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
-                Secure payment via PayPal
-            </div>
-        </div>
+        <div class="paypal-container" id="paypal-button-basic"></div>
+        <div class="paypal-secure">Secure payment via PayPal</div>
     </div>
 
-    <!-- Pro -->
     <div class="plan popular">
         <div class="plan-name">Pro</div>
         <div class="plan-desc">For power users &amp; professionals</div>
@@ -195,19 +138,10 @@
             <li>Image generation &amp; understanding</li>
             <li>Multi-model comparison</li>
         </ul>
-        <div class="paypal-btn-wrap">
-            <button class="paypal-btn" onclick="handleSubscribe('pro')">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 4.01a.77.77 0 0 1 .757-.646h5.976c2.83 0 4.784.682 5.804 2.027.494.652.785 1.344.868 2.086.08.72.013 1.565-.2 2.528-.47 2.123-1.457 3.728-2.934 4.768-1.447 1.018-3.416 1.534-5.854 1.534H8.087a.77.77 0 0 0-.757.645l-.254 1.583zm11.562-9.877c-.012-.032-.024-.064-.038-.096a5.79 5.79 0 0 0-1.008-1.764c-1.148-1.446-3.072-2.18-5.717-2.18H6.137a1.156 1.156 0 0 0-1.136.97L2.258 20.763a.966.966 0 0 0 .95 1.117h4.606l-.276 1.72a.966.966 0 0 0 .95 1.118h4.006c.512 0 .95-.374 1.03-.882l.043-.273.815-5.09.053-.298a1.04 1.04 0 0 1 1.03-.882h.649c4.2 0 7.49-1.707 8.45-6.643.36-1.848.2-3.394-.438-4.553a4.39 4.39 0 0 0-.644-.847"/></svg>
-                Subscribe
-            </button>
-            <div class="paypal-secure">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="#999"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
-                Secure payment via PayPal
-            </div>
-        </div>
+        <div class="paypal-container" id="paypal-button-pro"></div>
+        <div class="paypal-secure">Secure payment via PayPal</div>
     </div>
 
-    <!-- Ultimate -->
     <div class="plan">
         <div class="plan-name">Ultimate</div>
         <div class="plan-desc">For teams &amp; heavy users</div>
@@ -222,16 +156,8 @@
             <li>API access (coming soon)</li>
             <li>Dedicated support</li>
         </ul>
-        <div class="paypal-btn-wrap">
-            <button class="paypal-btn" onclick="handleSubscribe('ultimate')">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 4.01a.77.77 0 0 1 .757-.646h5.976c2.83 0 4.784.682 5.804 2.027.494.652.785 1.344.868 2.086.08.72.013 1.565-.2 2.528-.47 2.123-1.457 3.728-2.934 4.768-1.447 1.018-3.416 1.534-5.854 1.534H8.087a.77.77 0 0 0-.757.645l-.254 1.583zm11.562-9.877c-.012-.032-.024-.064-.038-.096a5.79 5.79 0 0 0-1.008-1.764c-1.148-1.446-3.072-2.18-5.717-2.18H6.137a1.156 1.156 0 0 0-1.136.97L2.258 20.763a.966.966 0 0 0 .95 1.117h4.606l-.276 1.72a.966.966 0 0 0 .95 1.118h4.006c.512 0 .95-.374 1.03-.882l.043-.273.815-5.09.053-.298a1.04 1.04 0 0 1 1.03-.882h.649c4.2 0 7.49-1.707 8.45-6.643.36-1.848.2-3.394-.438-4.553a4.39 4.39 0 0 0-.644-.847"/></svg>
-                Subscribe
-            </button>
-            <div class="paypal-secure">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="#999"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
-                Secure payment via PayPal
-            </div>
-        </div>
+        <div class="paypal-container" id="paypal-button-ultimate"></div>
+        <div class="paypal-secure">Secure payment via PayPal</div>
     </div>
 </section>
 
@@ -240,14 +166,37 @@
     <p style="margin-top:4px;">Powered by <a href="https://www.paypal.com" target="_blank">PayPal</a> secure payment</p>
 </footer>
 
+<!-- ========== 替换下面的 YOUR_CLIENT_ID 为你的 PayPal Client ID ========== -->
+<script src="https://www.paypal.com/sdk/js?client-id=AUN9c1w1UGqd2RkSk5AUxxaYYQdwsxwuhCtZLbsTfDBE6wgcnD6G9WeK15OYzKyP_MXQVA6u05vlFZ20&currency=USD&intent=subscription"></script>
+
 <script>
-function handleSubscribe(plan) {
-    const prices = { basic: '$9', pro: '$19', ultimate: '$39' };
-    const names = { basic: 'Basic', pro: 'Pro', ultimate: 'Ultimate' };
-    alert('You are subscribing to DuYing AI ' + names[plan] + ' (' + prices[plan] + '/month).\n\nYou will be redirected to PayPal to complete your subscription.');
-    // In production: redirect to PayPal subscription flow
-    // window.location.href = '/api/subscribe?plan=' + plan;
+function initPayPalButton(containerId, planId) {
+    paypal.Buttons({
+        style: {
+            shape: 'pill',
+            color: containerId === 'paypal-button-pro' ? 'gold' : 'blue',
+            layout: 'horizontal',
+            label: 'subscribe',
+            height: 40
+        },
+        createSubscription: function(data, actions) {
+            return actions.subscription.create({
+                'plan_id': planId
+            });
+        },
+        onApprove: function(data, actions) {
+            alert('Thank you! Your subscription ID: ' + data.subscriptionID);
+        },
+        onError: function(err) {
+            console.error('PayPal error:', err);
+        }
+    }).render('#' + containerId);
 }
+
+// 初始化三个按钮（plan_id 后续替换为 PayPal Dashboard 创建的真实 Plan ID）
+initPayPalButton('paypal-button-basic', 'P-BASIC_PLAN_ID');
+initPayPalButton('paypal-button-pro', 'P-PRO_PLAN_ID');
+initPayPalButton('paypal-button-ultimate', 'P-ULTIMATE_PLAN_ID');
 </script>
 
 </body>
