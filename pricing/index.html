@@ -3,36 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DuYing AI - Pricing</title>
+    <title>DuYing AI - Pricing - AI Information Service</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --accent: #8bc34a;
-            --accent-dark: #689f38;
-            --dark: #1a1a2e;
-            --text: #333;
-            --text-light: #666;
-            --bg: #fafbfc;
-            --white: #fff;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg); color: var(--text); line-height: 1.6;
-        }
-        nav {
-            background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            padding: 16px 0; position: sticky; top: 0; z-index: 100;
-        }
-        nav .container {
-            max-width: 1100px; margin: 0 auto; padding: 0 24px;
-            display: flex; align-items: center; justify-content: space-between;
-        }
+        :root { --accent: #8bc34a; --accent-dark: #689f38; --dark: #1a1a2e; --text: #333; --text-light: #666; --bg: #fafbfc; --white: #fff; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        nav { background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.08); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        nav .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--dark); }
-        .logo-icon {
-            width: 36px; height: 36px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px;
-        }
+        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
         .logo-text { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
         .logo-text span { color: var(--accent-dark); }
         .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -40,30 +19,15 @@
         .nav-links a:hover { color: var(--accent-dark); }
         .btn-nav { background: var(--accent); color: white !important; padding: 8px 20px; border-radius: 8px; font-size: 14px; }
         .btn-nav:hover { background: var(--accent-dark); }
-        .hero {
-            text-align: center; padding: 64px 24px 48px;
-            background: linear-gradient(180deg, #f0f7e6 0%, var(--bg) 100%);
-        }
+        .hero { text-align: center; padding: 64px 24px 48px; background: linear-gradient(180deg, #f0f7e6 0%, var(--bg) 100%); }
         .hero h1 { font-size: 42px; font-weight: 800; color: var(--dark); margin-bottom: 16px; letter-spacing: -1px; }
         .hero h1 em { color: var(--accent-dark); font-style: normal; }
         .hero p { font-size: 18px; color: var(--text-light); max-width: 560px; margin: 0 auto; }
-        .plans {
-            max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px;
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-        }
-        .plan {
-            background: var(--white); border-radius: 16px; padding: 36px 28px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 2px solid transparent;
-            transition: all 0.3s; position: relative;
-        }
+        .plans { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .plan { background: var(--white); border-radius: 16px; padding: 36px 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 2px solid transparent; transition: all 0.3s; position: relative; }
         .plan:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
         .plan.popular { border-color: var(--accent); }
-        .plan.popular::before {
-            content: 'Most Popular'; position: absolute; top: -14px; left: 50%;
-            transform: translateX(-50%); background: var(--accent); color: white;
-            font-size: 12px; font-weight: 700; padding: 4px 16px; border-radius: 20px;
-            text-transform: uppercase; letter-spacing: 0.5px;
-        }
+        .plan.popular::before { content: 'Most Popular'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
         .plan-name { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
         .plan-desc { font-size: 14px; color: var(--text-light); margin-bottom: 20px; }
         .plan-price { margin-bottom: 24px; }
@@ -77,127 +41,121 @@
         .paypal-secure { text-align: center; font-size: 11px; color: #999; margin-top: 8px; }
         footer { text-align: center; padding: 32px 24px; border-top: 1px solid #eee; color: var(--text-light); font-size: 13px; }
         footer a { color: var(--accent-dark); text-decoration: none; }
-        @media (max-width: 768px) {
-            .plans { grid-template-columns: 1fr; max-width: 400px; }
-            .hero h1 { font-size: 28px; }
-            .nav-links { display: none; }
-        }
+        @media (max-width: 768px) { .plans { grid-template-columns: 1fr; max-width: 400px; } .hero h1 { font-size: 28px; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
-
-<nav>
-    <div class="container">
-        <a href="https://duying.ai" class="logo">
-            <div class="logo-icon">🔥</div>
-            <div class="logo-text">Du<span>Ying</span> AI</div>
-        </a>
-        <div class="nav-links">
-            <a href="https://duying.ai">Home</a>
-            <a href="#">Features</a>
-            <a href="#" style="color:var(--accent-dark);font-weight:600;">Pricing</a>
-            <a href="#" class="btn-nav">Get Started</a>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🤖</div>
+                <div class="logo-text">DuYing <span>AI</span></div>
+            </a>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#" class="btn-nav">Get Started</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<section class="hero">
-    <h1>Choose Your <em>AI Power</em></h1>
-    <p>Access GPT-5, Claude, Gemini and 100+ AI models. One subscription, unlimited possibilities.</p>
-</section>
+    <section class="hero">
+        <h1>Choose Your <em>AI Information Service</em> Plan</h1>
+        <p>GPT-5, Claude, Gemini and 100+ AI information systems. One service plan, unlimited information access.</p>
+    </section>
 
-<section class="plans">
-    <div class="plan">
-        <div class="plan-name">Basic</div>
-        <div class="plan-desc">For casual users &amp; explorers</div>
-        <div class="plan-price">
-            <span class="currency">$</span><span class="amount">9</span><span class="period">/month</span>
+    <section class="plans">
+        <div class="plan">
+            <div class="plan-name">Basic</div>
+            <div class="plan-desc">For casual users & information seekers</div>
+            <div class="plan-price">
+                <span class="currency">$</span><span class="amount">9</span><span class="period">/month</span>
+            </div>
+            <ul class="plan-features">
+                <li>100K tokens/month</li>
+                <li>GPT-4o Mini, DeepSeek, Qwen Lite</li>
+                <li>Standard response speed</li>
+                <li>Web & mobile access</li>
+                <li>5 query history</li>
+                <li>Secure payment via PayPal</li>
+            </ul>
+            <div class="paypal-container" id="paypal-button-basic"></div>
+            <div class="paypal-secure">Secure payment via PayPal</div>
         </div>
-        <ul class="plan-features">
-            <li>100K tokens/month</li>
-            <li>GPT-4o Mini, DeepSeek, Qwen Lite</li>
-            <li>Standard response speed</li>
-            <li>Web &amp; mobile access</li>
-            <li>5 conversation history</li>
-        </ul>
-        <div class="paypal-container" id="paypal-button-basic"></div>
-        <div class="paypal-secure">Secure payment via PayPal</div>
-    </div>
 
-    <div class="plan popular">
-        <div class="plan-name">Pro</div>
-        <div class="plan-desc">For power users &amp; professionals</div>
-        <div class="plan-price">
-            <span class="currency">$</span><span class="amount">19</span><span class="period">/month</span>
+        <div class="plan popular">
+            <div class="plan-name">Pro</div>
+            <div class="plan-desc">For professionals & frequent users</div>
+            <div class="plan-price">
+                <span class="currency">$</span><span class="amount">19</span><span class="period">/month</span>
+            </div>
+            <ul class="plan-features">
+                <li>500K tokens/month</li>
+                <li>GPT-5.4, Claude Sonnet, Gemini Pro</li>
+                <li>Priority response speed</li>
+                <li>Unlimited query history</li>
+                <li>Visual information processing</li>
+                <li>Multi-source information comparison</li>
+                <li>Secure payment via PayPal</li>
+            </ul>
+            <div class="paypal-container" id="paypal-button-pro"></div>
+            <div class="paypal-secure">Secure payment via PayPal</div>
         </div>
-        <ul class="plan-features">
-            <li>500K tokens/month</li>
-            <li>GPT-5.4, Claude Sonnet, Gemini Pro</li>
-            <li>Priority response speed</li>
-            <li>Unlimited conversation history</li>
-            <li>Image generation &amp; understanding</li>
-            <li>Multi-model comparison</li>
-        </ul>
-        <div class="paypal-container" id="paypal-button-pro"></div>
-        <div class="paypal-secure">Secure payment via PayPal</div>
-    </div>
 
-    <div class="plan">
-        <div class="plan-name">Ultimate</div>
-        <div class="plan-desc">For teams &amp; heavy users</div>
-        <div class="plan-price">
-            <span class="currency">$</span><span class="amount">39</span><span class="period">/month</span>
+        <div class="plan">
+            <div class="plan-name">Ultimate</div>
+            <div class="plan-desc">For teams & enterprise users</div>
+            <div class="plan-price">
+                <span class="currency">$</span><span class="amount">39</span><span class="period">/month</span>
+            </div>
+            <ul class="plan-features">
+                <li>2M tokens/month</li>
+                <li>All models including O3, GPT-5.5 Pro</li>
+                <li>Highest priority speed</li>
+                <li>Video information access</li>
+                <li>System integration access (coming soon)</li>
+                <li>Dedicated support</li>
+                <li>Secure payment via PayPal</li>
+            </ul>
+            <div class="paypal-container" id="paypal-button-ultimate"></div>
+            <div class="paypal-secure">Secure payment via PayPal</div>
         </div>
-        <ul class="plan-features">
-            <li>2M tokens/month</li>
-            <li>All models including O3, GPT-5.5 Pro</li>
-            <li>Highest priority speed</li>
-            <li>Video generation access</li>
-            <li>API access (coming soon)</li>
-            <li>Dedicated support</li>
-        </ul>
-        <div class="paypal-container" id="paypal-button-ultimate"></div>
-        <div class="paypal-secure">Secure payment via PayPal</div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <p>&copy; 2026 DuYing AI. All rights reserved. | <a href="mailto:support@duying.ai">support@duying.ai</a></p>
-    <p style="margin-top:4px;">Powered by <a href="https://www.paypal.com" target="_blank">PayPal</a> secure payment</p>
-</footer>
+    <footer>
+        <p>© 2026 DuYing AI. All rights reserved. | <a href="mailto:support@duying.ai">support@duying.ai</a></p>
+        <p style="margin-top: 8px;">DuYing provides AI-powered information access services to users worldwide.</p>
+        <p style="margin-top: 8px;">Powered by PayPal</p>
+    </footer>
 
-<!-- ========== 替换下面的 YOUR_CLIENT_ID 为你的 PayPal Client ID ========== -->
-<!-- <script src="https://www.paypal.com/sdk/js?client-id=AUN9c1w1UGqd2RkSk5AUxxaYYQdwsxwuhCtZLbsTfDBE6wgcnD6G9WeK15OYzKyP_MXQVA6u05vlFZ20&currency=USD"></script> -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AUN9c1w1UGqd2RkSk5AUxxaYYQdwsxwuhCtZLbsTfDBE6wgcnD6G9WeK15OYzKyP_MXQVA6u05vlFZ20&currency=USD"></script>
-
-<script>
-function initPayPalButton(containerId, amount) {
-    paypal.Buttons({
-        style: {
-            shape: 'pill',
-            color: containerId === 'paypal-button-pro' ? 'gold' : 'blue',
-            layout: 'horizontal',
-            label: 'pay',
-            height: 40
-        },
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    description: 'DuYing AI Subscription',
-                    amount: { value: amount }
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            alert('Thank you for your payment!');
+    <script src="https://www.paypal.com/sdk/js?client-id=AUN9c1w1UGqd2RkSk5AUxxaYYQdwsxwuhCtZLbsTfDBE6wgcnD6G9WeK15OYzKyP_MXQVA6u05vlFZ20&currency=USD" data-sdk-integration-source="button-factory"></script>
+    <script>
+        function initPayPalButton(containerId, amount) {
+            paypal.Buttons({
+                style: {
+                    shape: 'pill',
+                    color: containerId === 'paypal-button-pro' ? 'gold' : 'blue',
+                    layout: 'horizontal',
+                    label: 'pay',
+                    height: 40
+                },
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            description: 'DuYing AI Information Service',
+                            amount: { value: amount }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    alert('Thank you for your payment!');
+                }
+            }).render('#' + containerId);
         }
-    }).render('#' + containerId);
-}
-
-initPayPalButton('paypal-button-basic', '9.00');
-initPayPalButton('paypal-button-pro', '19.00');
-initPayPalButton('paypal-button-ultimate', '39.00');
-</script>
-
+        initPayPalButton('paypal-button-basic', '9.00');
+        initPayPalButton('paypal-button-pro', '19.00');
+        initPayPalButton('paypal-button-ultimate', '39.00');
+    </script>
 </body>
 </html>
