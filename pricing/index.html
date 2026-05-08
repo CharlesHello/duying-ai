@@ -1,141 +1,446 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DuYing AI - Pricing - AI Information Service</title>
+    <title>批发采购 - 付款</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=AUN9c1w1UGqd2RkSk5AUxxaYYQdwsxwuhCtZLbsTfDBE6wgcnD6G9WeK15OYzKyP_MXQVA6u05vlFZ20&currency=USD" data-sdk-integration-source="button-factory"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --accent: #8bc34a; --accent-dark: #689f38; --dark: #1a1a2e; --text: #333; --text-light: #666; --bg: #fafbfc; --white: #fff; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        nav { background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.08); padding: 16px 0; position: sticky; top: 0; z-index: 100; }
-        nav .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--dark); }
-        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-        .logo-text { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
-        .logo-text span { color: var(--accent-dark); }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 15px; }
-        .nav-links a:hover { color: var(--accent-dark); }
-        .btn-nav { background: var(--accent); color: white !important; padding: 8px 20px; border-radius: 8px; font-size: 14px; }
-        .btn-nav:hover { background: var(--accent-dark); }
-        .hero { text-align: center; padding: 64px 24px 48px; background: linear-gradient(180deg, #f0f7e6 0%, var(--bg) 100%); }
-        .hero h1 { font-size: 42px; font-weight: 800; color: var(--dark); margin-bottom: 16px; letter-spacing: -1px; }
-        .hero h1 em { color: var(--accent-dark); font-style: normal; }
-        .hero p { font-size: 18px; color: var(--text-light); max-width: 560px; margin: 0 auto; }
-        .plans { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .plan { background: var(--white); border-radius: 16px; padding: 36px 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 2px solid transparent; transition: all 0.3s; position: relative; }
-        .plan:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-        .plan.popular { border-color: var(--accent); }
-        .plan.popular::before { content: 'Most Popular'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .plan-name { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-        .plan-desc { font-size: 14px; color: var(--text-light); margin-bottom: 20px; }
-        .plan-price { margin-bottom: 24px; }
-        .plan-price .amount { font-size: 48px; font-weight: 800; color: var(--dark); }
-        .plan-price .currency { font-size: 20px; font-weight: 600; color: var(--text-light); vertical-align: super; }
-        .plan-price .period { font-size: 15px; color: var(--text-light); }
-        .plan-features { list-style: none; margin-bottom: 28px; }
-        .plan-features li { padding: 6px 0; font-size: 14px; color: var(--text); display: flex; align-items: flex-start; gap: 8px; }
-        .plan-features li::before { content: '✓'; color: var(--accent-dark); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-        .paypal-container { min-height: 45px; }
-        .paypal-secure { text-align: center; font-size: 11px; color: #999; margin-top: 8px; }
-        footer { text-align: center; padding: 32px 24px; border-top: 1px solid #eee; color: var(--text-light); font-size: 13px; }
-        footer a { color: var(--accent-dark); text-decoration: none; }
-        @media (max-width: 768px) { .plans { grid-template-columns: 1fr; max-width: 400px; } .hero h1 { font-size: 28px; } .nav-links { display: none; } }
+        :root {
+            --primary: #1976d2;
+            --primary-dark: #1565c0;
+            --accent: #ff9800;
+            --accent-dark: #f57c00;
+            --dark: #1a1a2e;
+            --text: #333;
+            --text-light: #666;
+            --bg: #f5f7fa;
+            --white: #fff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        nav {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark);
+        }
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .logo-text span {
+            color: var(--primary);
+        }
+        .hero {
+            text-align: center;
+            padding: 64px 24px 48px;
+            background: linear-gradient(180deg, #e3f2fd 0%, var(--bg) 100%);
+        }
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        .hero h1 em {
+            color: var(--primary);
+            font-style: normal;
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .products {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .product {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 36px 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .product:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        .product.popular {
+            border-color: var(--primary);
+        }
+        .product.popular::before {
+            content: '热销';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 20px;
+        }
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+        .product-icon {
+            width: 64px;
+            height: 64px;
+            background: #e3f2fd;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .product-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        .product-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            min-height: 42px;
+        }
+        .product-price {
+            margin-bottom: 24px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        .product-price .unit {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        .product-price .amount {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        .product-price .currency {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        .product-price .original {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+        .product-price .save {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        .product-features {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+        .product-features li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: var(--text);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .product-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .paypal-container {
+            min-height: 45px;
+        }
+        .paypal-secure {
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
+        }
+        .wholesale-note {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            padding: 20px 24px;
+            background: #fff3e0;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .wholesale-note h3 {
+            color: var(--accent-dark);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .wholesale-note p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid #eee;
+            color: var(--text-light);
+            font-size: 13px;
+        }
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="container">
             <a href="#" class="logo">
-                <div class="logo-icon">🤖</div>
-                <div class="logo-text">DuYing <span>AI</span></div>
+                <div class="logo-icon">💻</div>
+                <div class="logo-text">批发<span>商城</span></div>
             </a>
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Features</a>
-                <a href="#">Pricing</a>
-                <a href="#" class="btn-nav">Get Started</a>
-            </div>
         </div>
     </nav>
 
     <section class="hero">
-        <h1>Choose Your <em>AI Information Service</em> Plan</h1>
-        <p>GPT-5, Claude, Gemini and 100+ AI information systems. One service plan, unlimited information access.</p>
+        <h1>计算机及外设<span>批发采购</span></h1>
+        <p>联想、戴尔、惠普品牌电脑，批量采购享优惠价，厂家直供，正品保障</p>
     </section>
 
-    <section class="plans">
-        <div class="plan">
-            <div class="plan-name">Basic</div>
-            <div class="plan-desc">For casual users & information seekers</div>
-            <div class="plan-price">
-                <span class="currency">$</span><span class="amount">9</span><span class="period">/month</span>
+    <div class="wholesale-note">
+        <h3>📦 批发说明</h3>
+        <p>以上价格为10台起批含税价，支持对公转账，含一年质保。批量采购（50台+）可申请更优惠价格。</p>
+    </div>
+
+    <section class="products">
+        <!-- 商用台式机 -->
+        <div class="product">
+            <div class="product-icon">🖥️</div>
+            <div class="product-name">商用台式机</div>
+            <div class="product-desc">联想启天/戴尔OptiPlex系列，Intel i5处理器，8GB内存，256GB SSD</div>
+            <div class="product-price">
+                <div class="unit">10台起批，含税含运费</div>
+                <span class="amount">3,280</span><span class="currency">元/台</span>
+                <span class="original">3,800元</span>
+                <span class="save">省14%</span>
             </div>
-            <ul class="plan-features">
-                <li>100K tokens/month</li>
-                <li>GPT-4o Mini, DeepSeek, Qwen Lite</li>
-                <li>Standard response speed</li>
-                <li>Web & mobile access</li>
-                <li>5 query history</li>
-                <li>Secure payment via PayPal</li>
+            <ul class="product-features">
+                <li>Intel i5-12400 / i5-13400</li>
+                <li>8GB DDR4 / 256GB NVMe SSD</li>
+                <li>21.5寸显示器标配</li>
+                <li>Windows 11 专业版</li>
+                <li>一年上门质保</li>
             </ul>
-            <div class="paypal-container" id="paypal-button-basic"></div>
-            <div class="paypal-secure">Secure payment via PayPal</div>
+            <div class="paypal-container" id="paypal-button-desktop"></div>
+            <div class="paypal-secure">💳 支持 PayPal / 信用卡支付 | USD 结算</div>
         </div>
 
-        <div class="plan popular">
-            <div class="plan-name">Pro</div>
-            <div class="plan-desc">For professionals & frequent users</div>
-            <div class="plan-price">
-                <span class="currency">$</span><span class="amount">19</span><span class="period">/month</span>
+        <!-- 商用笔记本 -->
+        <div class="product popular">
+            <span class="product-badge">热销</span>
+            <div class="product-icon">💻</div>
+            <div class="product-name">商用笔记本</div>
+            <div class="product-desc">ThinkPad L系列/戴尔Latitude，Intel i5处理器，16GB内存，512GB SSD</div>
+            <div class="product-price">
+                <div class="unit">10台起批，含税含运费</div>
+                <span class="amount">4,680</span><span class="currency">元/台</span>
+                <span class="original">5,500元</span>
+                <span class="save">省15%</span>
             </div>
-            <ul class="plan-features">
-                <li>500K tokens/month</li>
-                <li>GPT-5.4, Claude Sonnet, Gemini Pro</li>
-                <li>Priority response speed</li>
-                <li>Unlimited query history</li>
-                <li>Visual information processing</li>
-                <li>Multi-source information comparison</li>
-                <li>Secure payment via PayPal</li>
+            <ul class="product-features">
+                <li>Intel i5-1340P / i5-1350P</li>
+                <li>16GB DDR5 / 512GB NVMe SSD</li>
+                <li>14寸 FHD IPS 屏幕</li>
+                <li>Windows 11 专业版</li>
+                <li>一年全球质保</li>
             </ul>
-            <div class="paypal-container" id="paypal-button-pro"></div>
-            <div class="paypal-secure">Secure payment via PayPal</div>
+            <div class="paypal-container" id="paypal-button-laptop"></div>
+            <div class="paypal-secure">💳 支持 PayPal / 信用卡支付 | USD 结算</div>
         </div>
 
-        <div class="plan">
-            <div class="plan-name">Ultimate</div>
-            <div class="plan-desc">For teams & enterprise users</div>
-            <div class="plan-price">
-                <span class="currency">$</span><span class="amount">39</span><span class="period">/month</span>
+        <!-- 工作站 -->
+        <div class="product">
+            <div class="product-icon">🖼️</div>
+            <div class="product-name">图形工作站</div>
+            <div class="product-desc">联想ThinkStation/戴尔Precision，Intel i7/i9或AMD Ryzen 9，专业显卡</div>
+            <div class="product-price">
+                <div class="unit">5台起批，含税含运费</div>
+                <span class="amount">12,800</span><span class="currency">元/台</span>
+                <span class="original">15,000元</span>
+                <span class="save">省15%</span>
             </div>
-            <ul class="plan-features">
-                <li>2M tokens/month</li>
-                <li>All models including O3, GPT-5.5 Pro</li>
-                <li>Highest priority speed</li>
-                <li>Video information access</li>
-                <li>System integration access (coming soon)</li>
-                <li>Dedicated support</li>
-                <li>Secure payment via PayPal</li>
+            <ul class="product-features">
+                <li>Intel i7-13700 / i9-13900K</li>
+                <li>32GB-64GB ECC内存</li>
+                <li>NVIDIA RTX 4000 / 4060</li>
+                <li>1TB NVMe SSD + 2TB HDD</li>
+                <li>三年上门质保</li>
             </ul>
-            <div class="paypal-container" id="paypal-button-ultimate"></div>
-            <div class="paypal-secure">Secure payment via PayPal</div>
+            <div class="paypal-container" id="paypal-button-workstation"></div>
+            <div class="paypal-secure">💳 支持 PayPal / 信用卡支付 | USD 结算</div>
+        </div>
+
+        <!-- 显示器 -->
+        <div class="product">
+            <div class="product-icon">🖥️</div>
+            <div class="product-name">商用显示器</div>
+            <div class="product-desc">飞利浦/戴尔24/27寸商用显示器，IPS面板，护眼低蓝光</div>
+            <div class="product-price">
+                <div class="unit">20台起批，含税含运费</div>
+                <span class="amount">880</span><span class="currency">元/台</span>
+                <span class="original">1,100元</span>
+                <span class="save">省20%</span>
+            </div>
+            <ul class="product-features">
+                <li>23.8寸 / 27寸 FHD IPS</li>
+                <li>75Hz 刷新率</li>
+                <li>原生滤蓝光，不闪屏</li>
+                <li>VGA + HDMI + DP 接口</li>
+                <li>三年质保</li>
+            </ul>
+            <div class="paypal-container" id="paypal-button-monitor"></div>
+            <div class="paypal-secure">💳 支持 PayPal / 信用卡支付 | USD 结算</div>
+        </div>
+
+        <!-- 打印机 -->
+        <div class="product">
+            <div class="product-icon">🖨️</div>
+            <div class="product-name">激光打印机</div>
+            <div class="product-desc">惠普/佳能黑白激光打印机，支持网络打印，适合企业办公</div>
+            <div class="product-price">
+                <div class="unit">10台起批，含税含运费</div>
+                <span class="amount">1,280</span><span class="currency">元/台</span>
+                <span class="original">1,600元</span>
+                <span class="save">省20%</span>
+            </div>
+            <ul class="product-features">
+                <li>黑白打印 30-40页/分钟</li>
+                <li>自动双面打印</li>
+                <li>有线网络 + USB</li>
+                <li>鼓粉分离设计</li>
+                <li>一年质保</li>
+            </ul>
+            <div class="paypal-container" id="paypal-button-printer"></div>
+            <div class="paypal-secure">💳 支持 PayPal / 信用卡支付 | USD 结算</div>
+        </div>
+
+        <!-- 键鼠套装 -->
+        <div class="product">
+            <div class="product-icon">⌨️</div>
+            <div class="product-name">键鼠套装</div>
+            <div class="product-desc">罗技/微软商用键鼠套装，无线/有线可选，耐磨耐用</div>
+            <div class="product-price">
+                <div class="unit">50套起批，含税含运费</div>
+                <span class="amount">120</span><span class="currency">元/套</span>
+                <span class="original">180元</span>
+                <span class="save">省33%</span>
+            </div>
+            <ul class="product-features">
+                <li>防水键盘设计</li>
+                <li>精准光学鼠标</li>
+                <li>无线2.4G / 有线USB</li>
+                <li>静音设计</li>
+                <li>一年质保</li>
+            </ul>
+            <div class="paypal-container" id="paypal-button-keyboard"></div>
+            <div class="paypal-secure">💳 支持 PayPal / 信用卡支付 | USD 结算</div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 DuYing AI. All rights reserved. | <a href="mailto:support@duying.ai">support@duying.ai</a></p>
-        <p style="margin-top: 8px;">DuYing provides AI-powered information access services to users worldwide.</p>
-        <p style="margin-top: 8px;">Powered by PayPal</p>
+        <p>© 2026 批发商城. All rights reserved. | 批发采购: wholesale@example.com</p>
+        <p style="margin-top: 8px;">Powered by PayPal | 批量采购请邮件联系获取报价单</p>
     </footer>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=AUN9c1w1UGqd2RkSk5AUxxaYYQdwsxwuhCtZLbsTfDBE6wgcnD6G9WeK15OYzKyP_MXQVA6u05vlFZ20&currency=USD" data-sdk-integration-source="button-factory"></script>
     <script>
-        function initPayPalButton(containerId, amount) {
+        // 汇率：1 CNY ≈ 0.14 USD
+        const CNY_TO_USD = 0.14;
+
+        function formatPrice(cny) {
+            return (cny * CNY_TO_USD).toFixed(2);
+        }
+
+        function initPayPalButton(containerId, amountCNY, productName) {
+            const amountUSD = formatPrice(amountCNY);
+            
             paypal.Buttons({
                 style: {
                     shape: 'pill',
-                    color: containerId === 'paypal-button-pro' ? 'gold' : 'blue',
+                    color: containerId === 'paypal-button-laptop' ? 'gold' : 'blue',
                     layout: 'horizontal',
                     label: 'pay',
                     height: 40
@@ -143,19 +448,26 @@
                 createOrder: function(data, actions) {
                     return actions.order.create({
                         purchase_units: [{
-                            description: 'DuYing AI Information Service',
-                            amount: { value: amount }
+                            description: productName + ' (10台起批)',
+                            amount: { value: amountUSD }
                         }]
                     });
                 },
                 onApprove: function(data, actions) {
-                    alert('Thank you for your payment!');
+                    return actions.order.capture().then(function(details) {
+                        alert('感谢您的订单！订单号: ' + data.orderID + '\n我们将在1-3个工作日内与您联系确认发货。');
+                    });
                 }
             }).render('#' + containerId);
         }
-        initPayPalButton('paypal-button-basic', '9.00');
-        initPayPalButton('paypal-button-pro', '19.00');
-        initPayPalButton('paypal-button-ultimate', '39.00');
+
+        // 初始化所有支付按钮
+        initPayPalButton('paypal-button-desktop', 3280, '商用台式机');
+        initPayPalButton('paypal-button-laptop', 4680, '商用笔记本');
+        initPayPalButton('paypal-button-workstation', 12800, '图形工作站');
+        initPayPalButton('paypal-button-monitor', 880, '商用显示器');
+        initPayPalButton('paypal-button-printer', 1280, '激光打印机');
+        initPayPalButton('paypal-button-keyboard', 120, '键鼠套装');
     </script>
 </body>
 </html>
